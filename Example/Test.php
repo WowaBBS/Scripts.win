@@ -1,0 +1,3 @@
+<?
+  echo 'Test from php';
+?>
