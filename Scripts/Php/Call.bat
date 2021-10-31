@@ -1,6 +1,6 @@
 @echo off
 
-call %~dp0Find.bat
+call "%~dp0Find.bat"
 
 setlocal
 

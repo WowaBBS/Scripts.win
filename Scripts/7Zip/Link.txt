@@ -1,0 +1,12 @@
+
+19.00
+
+https://www.7-zip.org/a/7z1900-x64.msi
+https://www.7-zip.org/a/7z1900.msi
+https://www.7-zip.org/a/7z2103-x64.msi
+https://www.7-zip.org/a/7z2103.msi
+https://www.7-zip.org/a/7z1604-x64.msi
+https://www.7-zip.org/a/7z1604.msi
+
+https://www.7-zip.org/a/7za920.zip
+https://www.7-zip.org/a/7z920-x64.msi

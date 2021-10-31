@@ -1,6 +1,6 @@
 @echo off
 
-call %~dp0_Env.bat
+call "%~dp0_Env.bat"
 
 if "%Current_Php_Version%"=="%Php_Version%" goto Skip
 

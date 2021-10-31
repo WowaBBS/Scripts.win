@@ -1,0 +1,5 @@
+
+https://sourceforge.net/projects/win32svn/
+https://alagazam.net/
+Redirect: https://sourceforge.net/projects/win32svn/files/1.8.17/Setup-Subversion-1.8.17.msi
+https://deac-ams.dl.sourceforge.net/project/win32svn/1.8.17/Setup-Subversion-1.8.17.msi

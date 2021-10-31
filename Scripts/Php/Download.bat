@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-call %~dp0_Env.bat
+call "%~dp0_Env.bat"
 
 if "%Php_Distrib%"==""  set Php_Distrib=%~dp0Tools/
 if "%Php_OS%"==""       set Php_OS=Win32
@@ -10,33 +10,31 @@ if "%Php_OS_Type%"==""  set Php_OS_Type=x64
 if "%Php_Compiler%"=="" if "%Php_Version:~0,1%"=="8" set Php_Compiler=vs16
 if "%Php_Compiler%"=="" set Php_Compiler=vc15
 
-mkdir %Php_Distrib%Downloads\ 2>nul
-
 set Php_Store_Url=https://windows.php.net/downloads
 
-call %~dp0_Download.bat releases/archives
+call "%~dp0_Download.bat" releases/archives
 if exist "%Php_File_Zip%" goto skip
 
-call %~dp0_Download.bat releases
+call "%~dp0_Download.bat" releases
 if exist "%Php_File_Zip%" goto skip
 
-call %~dp0_Download.bat qa RC5
+call "%~dp0_Download.bat" qa RC5
 if exist "%Php_File_Zip%" goto skip
 
-call %~dp0_Download.bat qa RC4
+call "%~dp0_Download.bat" qa RC4
 if exist "%Php_File_Zip%" goto skip
 
-call %~dp0_Download.bat qa RC3
+call "%~dp0_Download.bat" qa RC3
 if exist "%Php_File_Zip%" goto skip
 
-call %~dp0_Download.bat qa RC2
+call "%~dp0_Download.bat" qa RC2
 if exist "%Php_File_Zip%" goto skip
 
-call %~dp0_Download.bat qa RC1
+call "%~dp0_Download.bat" qa RC1
 if exist "%Php_File_Zip%" goto skip
 
 :skip
-call %~dp0../File/UnZip.bat "%Php_File_Zip%" "%Php_Path%"
+call "%~dp0../File/UnZip.bat" "%Php_File_Zip%" "%Php_Path%"
 ::del "%Php_File_Zip%" 2>nul
 
 endlocal
