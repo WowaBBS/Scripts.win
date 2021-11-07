@@ -1,0 +1,40 @@
+<?
+  if(php_sapi_name()!=='cli') return;
+
+  $Dir               =__DIR__;
+  $VendorDir         =$Dir.'\vendor';
+  $Composer          =$VendorDir.'\composer.phar';
+  $ComposerInstaller =$VendorDir.'\ComposerInstaller.php';
+  
+  if(!Is_Dir($VendorDir))
+    @MkDir($VendorDir);
+  
+  Register_ShutDown_Function('Composer', $Composer); //Hack on exit
+  
+  if(!Is_File($Composer))
+  {
+    if(!Is_File($ComposerInstaller))
+    {
+      $Data=File_Get_Contents('https://getcomposer.org/installer');
+      File_Put_Contents($ComposerInstaller, $Data);
+    }
+
+    if(!Is_File($ComposerInstaller))
+      return;
+    
+    $_SERVER['argv']=$argv=[$ComposerInstaller, '--install-dir='.$VendorDir];
+    Include $ComposerInstaller;
+  //UnLink($ComposerInstaller);
+  }
+
+  Function Composer($Composer)
+  {  
+    if(!Is_File($Composer))
+      return;
+      
+    $_SERVER['argv']=$argv=[$Composer, Is_File('./composer.lock')? 'update':'install'];
+    $_SERVER['argc']=$argc=Count($argv);
+    
+    include $Composer;
+  }
+?>
