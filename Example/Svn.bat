@@ -3,4 +3,5 @@
 call "%~dp0_Init.bat"
 call "%Scripts_Path%\Svn\Find.bat"
 
-%Svn_Exec% help
+echo Svn version:
+%Svn_Exec% --version --quiet

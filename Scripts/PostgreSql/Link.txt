@@ -1,0 +1,3 @@
+
+https://www.enterprisedb.com/download-postgresql-binaries
+https://get.enterprisedb.com/postgresql/postgresql-14.2-1-windows-x64-binaries.zip

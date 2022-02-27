@@ -1,15 +1,18 @@
 @echo off
 
-call ",,\_Env.bat"
-if "%Python_Distrib%"=="" set Python_Distrib=%Scripts_Distrib%
-if "%Python_Type%"==""    set Python_Type=embed
-if "%Python_CPU%"==""     set Python_CPU=amd64
+call "%~dp0..\_Env.bat"
+
+::if "%Python_Version%"=="" set Python_Version=2.7.18
 ::if "%Python_Version%"=="" set Python_Version=3.9.0
 if "%Python_Version%"=="" set Python_Version=3.9.6
-::if "%Python_Version%"=="" set Python_Version=2.7.18
+if "%Python_Distrib%"=="" set Python_Distrib=%Scripts_Distrib%\Python
+if "%Python_Path%"==""    set Python_Path=%Python_Distrib%\V%Python_Version:.=x%
+:: "%Python_UnPack%"==""  set Python_UnPack=%Scripts_UnPack%\Python\V%Python_Version:.=x%
+if "%Python_Type%"==""    set Python_Type=embed
+if "%Python_CPU%"==""     set Python_CPU=amd64
 
-set Python_Path=%Python_Distrib%Python/V%Python_Version:.=x%
-set Python_Exe=%Python_Path%/Python.exe
+set Python_Bin=%Python_Path%
+set Python_Exe=%Python_Bin%\Python.exe
 set Python_Exec=^"%Python_Exe%^"
 
 set PYTHONPATH=%Python_Path%;%Python_Path%\Lib\site-packages

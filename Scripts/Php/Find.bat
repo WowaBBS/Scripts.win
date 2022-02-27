@@ -4,7 +4,7 @@ call "%~dp0_Env.bat"
 
 if "%Current_Php_Version%"=="%Php_Version%" goto Skip
 
-if "%Php_Distrib%"=="" set Php_Distrib=%~dp0php\
+if "%Php_Distrib%"=="" set Php_Distrib=%~dp0php
 if "%Php_Configurator_Id%"=="" set Php_Configurator_Id=Def_0
 if "%Php_Configurator%"=="" set Php_Configurator=%~dp0Configurator.php
 

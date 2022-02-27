@@ -1,0 +1,31 @@
+
+-------------------------------------
+Apache Haus 
+
+https://www.apachehaus.com/cgi-bin/download.plx
+
+Apache 2.4.52 x64
+httpd-2.4.52-o111m-x64-vc15.zip
+https://www.apachehaus.com/downloads/httpd-2.4.52-o111m-x64-vc15.zip
+ https://de.apachehaus.com/downloads/httpd-2.4.52-o111m-x64-vc15.zip
+ https://de.apachehaus.com/downloads/httpd-2.4.52-o111m-x86-vc15.zip
+https://www.apachehaus.com/downloads/httpd-2.4.52-o111m-x86-vs16.zip
+https://de.apachehaus.com/downloads/httpd-2.4.52-lre342-x64-vs16.zip
+
+https://www.apachehaus.com/downloads/mod_authn_ntlm-1.0.8-x64-vc15.zip
+https://www.apachehaus.com/downloads/mod_fcgid-2.3.9a-2.4.x-x64-vc15.zip // A binary compatibility alternative to Apache module mod_fastcgi for Apache 2.4.x
+https://www.apachehaus.com/downloads/mod_log_rotate-1.0-2.4.x-x86-vc15.zip
+https://www.apachehaus.com/downloads/mod_log_rotate-1.0.2-2.4.x-x64-vc16.zip
+
+
+-------------------------------------
+Apache Lounge
+
+https://www.apachelounge.com/download/
+
+https://www.apachelounge.com/download/VS16/binaries/httpd-2.4.52-win64-VS16.zip
+https://www.apachelounge.com/download/VS16/binaries/httpd-2.4.52-win32-VS16.zip
+
+https://www.apachelounge.com/download/VS16/modules/mod_fcgid-2.3.10-win64-VS16.zip
+https://www.apachelounge.com/download/VS16/modules/mod_xsendfile-1.0-P1-win64-VS16.zip
+https://www.apachelounge.com/download/VS16/modules/mod_log_rotate-1.0.2-win64-VS16.zip

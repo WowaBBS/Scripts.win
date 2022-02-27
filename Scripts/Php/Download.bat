@@ -3,7 +3,7 @@ setlocal
 
 call "%~dp0_Env.bat"
 
-if "%Php_Distrib%"==""  set Php_Distrib=%~dp0Tools/
+if "%Php_Distrib%"==""  set Php_Distrib=%~dp0Tools
 if "%Php_OS%"==""       set Php_OS=Win32
 if "%Php_OS_Type%"==""  set Php_OS_Type=x64
 
@@ -34,7 +34,5 @@ call "%~dp0_Download.bat" qa RC1
 if exist "%Php_File_Zip%" goto skip
 
 :skip
-call "%~dp0../File/UnZip.bat" "%Php_File_Zip%" "%Php_Path%"
-::del "%Php_File_Zip%" 2>nul
 
 endlocal
