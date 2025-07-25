@@ -1,7 +1,7 @@
 
 call "%~dp0..\_Env.bat"
 
-if "%Php_Version%"=="" set Php_Version=8.1.2
+if "%Php_Version%"=="" set Php_Version=8.4.10
 :: "%Php_Ver_Nts%"=="" set Php_Ver_Nts=-nts
 if "%Php_Ver_Nts%"=="" set Php_Ver_Nts=
 if "%Php_Distrib%"=="" set Php_Distrib=%Scripts_Distrib%\Php

@@ -7,6 +7,7 @@ if "%Php_Distrib%"==""  set Php_Distrib=%~dp0Tools
 if "%Php_OS%"==""       set Php_OS=Win32
 if "%Php_OS_Type%"==""  set Php_OS_Type=x64
 
+if "%Php_Compiler%"=="" if "%Php_Version:~0,3%"=="8.4" set Php_Compiler=vs17
 if "%Php_Compiler%"=="" if "%Php_Version:~0,1%"=="8" set Php_Compiler=vs16
 if "%Php_Compiler%"=="" set Php_Compiler=vc15
 
