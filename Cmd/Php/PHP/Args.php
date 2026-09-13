@@ -6,3 +6,10 @@ ForEach($PhpConfig As $k=>$v)
     ForEach($v As $k2=>$v2)
       Array_Push($Args, '-d', $k.'.'.$k2.'='.$v2); 
 }
+
+Array_Push($Args, '-c', $PHP_Path);
+Array_Push($Args, '-f', $CallFile);
+Array_Push($Args, '--');
+Array_Push($Args, ...Array_Slice($argv, 2));
+
+If(!$Ver) $Ver='84';

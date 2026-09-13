@@ -25,7 +25,7 @@ Function ParseOpts($Line)
   While($OptLine)
   {
     $FullOpt=Array_Shift($OptLine);
-    If($FullOpt==='') Return;
+    If($FullOpt==='') Return $Options;
     If(StrLen($FullOpt) && $FullOpt[0]==='#') // Comment
     {
       If($FullOpt==='#?') Break;
@@ -65,4 +65,17 @@ Function ProcessOpts($Options)
   Global $OptsInfo;
   ForEach($Options As $Name=>$Value)
     $OptsInfo[$Name]->Process($Value);
+}
+
+Function ShowOpts($Options)
+{
+  Global $OptsInfo;
+  $Res=[];
+  ForEach($Options As $Name=>$Value)
+  {
+    $R=$OptsInfo[$Name]->Show($Value);
+    If($R!=='')
+      $Res[]=$R;
+  }
+  Return Implode(' ', $Res);
 }

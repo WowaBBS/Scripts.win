@@ -23,4 +23,12 @@ Class TBase
   Function Help_Value () { Return $this->Help_Value ; }
   Function Parse($Value) { Return $Value; }
   Function Process($Value) {}
+  Function Show($Value)
+  {
+     If($Value===True  ) $Value='+'; Else
+     If($Value===False ) $Value='-'; Else
+     If($Value===Null  ) $Value='?'; Else
+       $Value=':'.$Value;
+     Return $this->GetName().$Value;
+  }
 }

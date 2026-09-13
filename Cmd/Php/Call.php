@@ -19,13 +19,8 @@
   ProcessOpts($Options);
 
   Include 'PHP/Args.php';
-  
-  Array_Push($Args, '-c', $PHP_Path);
-  Array_Push($Args, '-f', $CallFile);
-  Array_Push($Args, '--');
-  Array_Push($Args, ...Array_Slice($argv, 2));
 
-  Echo "PHP $Ver, Mem: $Options[Mem], Jit$Options[Jit]\n";
+  Echo "PHP$Ver ", ShowOpts($Options), "\n";
 
   CallExec([$PHP_Path.'\php.exe', '-q', ...$Args]);
   
