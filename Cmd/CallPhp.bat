@@ -1,6 +1,6 @@
 @echo off
 :: Config will set env 
-if "%PHP_Path%" == "" set PHP_Path=C:\SRV\Script\PHP\V8x4
+if "%PHP_Path%" == "" echo PHP_Path is not defined for PHP85 &Exit
 set Arg=
 set Arg=%Arg% -d "extension_dir=%PHP_Path%/ext"
 set Arg=%Arg% -c "%PHP_Path%"

@@ -7,4 +7,5 @@ Return [
   Include 'Args.php'       ,
   Include 'NewConsole.php' ,
   Include 'Help.php'       ,
+  Include 'HideInfo.php'   ,
 ];

@@ -9,4 +9,6 @@ Return New Class('ShortTags', 'ShortTags[|-]', 'On, On, Off, Default') Extends T
     Global $PhpConfig;
     $PhpConfig['short_open_tag']=($Value? 'On':'Off');
   }
+
+  Function GetDefault() { Return True; }
 };

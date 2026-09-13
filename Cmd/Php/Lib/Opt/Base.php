@@ -25,7 +25,7 @@ Class TBase
   Function Process($Value) {}
   Function Show($Value)
   {
-     If($Value===True  ) $Value='+'; Else
+     If($Value===True  ) $Value=''; Else
      If($Value===False ) $Value='-'; Else
      If($Value===Null  ) $Value='?'; Else
      If(Is_Array($Value)) $Value=': '.Implode(' ', $Value); Else
