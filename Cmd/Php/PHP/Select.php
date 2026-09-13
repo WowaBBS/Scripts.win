@@ -8,6 +8,6 @@ $PhpConfig=[
 $Options['Mem']='1512M';
 $Options['Jit']=Null;
 $OptsInfo=[
-  ...NormalizeOptsInfo(Include 'PHP/Opt/All.php'),
+  ...NormalizeOptsInfo(Include __DIR__.'/Opt/All.php'),
   ...$OptsInfo,
 ];

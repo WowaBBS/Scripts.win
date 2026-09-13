@@ -28,7 +28,7 @@ Function ParseOpts($Line)
     If($FullOpt==='') Return $Options;
     If(StrLen($FullOpt) && $FullOpt[0]==='#') // Comment
     {
-      If($FullOpt==='#?') Break;
+      If($FullOpt==='#:') Break;
       Continue;
     }
     

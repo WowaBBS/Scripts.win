@@ -28,6 +28,7 @@ Class TBase
      If($Value===True  ) $Value='+'; Else
      If($Value===False ) $Value='-'; Else
      If($Value===Null  ) $Value='?'; Else
+     If(Is_Array($Value)) $Value=': '.Implode(' ', $Value); Else
        $Value=':'.$Value;
      Return $this->GetName().$Value;
   }
