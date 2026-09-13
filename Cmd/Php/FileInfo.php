@@ -1,26 +1,15 @@
 <?
-Function ParseFileInfo($CallFile)
+Function ParseFileInfo($SourceFile)
 {
-  $Ext=PathInfo($CallFile, PATHINFO_EXTENSION);
-  $Ver='';
-  If(Str_Starts_With($Ext, $Prefix='php'))
-    $Ver=SubStr($Ext, Strlen($Prefix));
-
-  $f=FOpen($CallFile, 'r');
-  If(!$f) { Print("Call File $CallFile not found\n"); Return [$Ver, '']; }
-  
-  $Line = FGetS($f);
-  FClose($f);
-  
-//$f=New SplFileObject($FlieName, 'r');
-//$Line=$f->FGetS();
-//$f->Close();
+  [$Ver, $Shebang, $Line]=ReadFileInfo($SourceFile);
 
   //TODO: Not only PHP but JS C++ etc
   $Line=Explode('<?', $Line, 2);
   If(!IsSet($Line[1])) Return [$Ver, ''];
   $Line=$Line[1];
   $Line=Explode('//CallPHP', $Line, 2);
+  If(!IsSet($Line[1])) 
+    $Line=Explode('//PHP', $Line[0], 2);
   If(!IsSet($Line[1])) Return [$Ver, ''];
   $Line=$Line[1];
   If(!IsSet($Line[1])) Return [$Ver, ''];
@@ -30,4 +19,29 @@ Function ParseFileInfo($CallFile)
   $Line=Trim($Line[1]);
   $OptLine=Explode(' ', $Line);
   Return [$Ver, $OptLine];
+}
+
+Function ReadFileInfo($SourceFile)
+{
+  $Ext=PathInfo($SourceFile, PATHINFO_EXTENSION);
+  $Ver='';
+  $Shebang='';
+  If(Str_Starts_With($Ext, $Prefix='php'))
+    $Ver=SubStr($Ext, Strlen($Prefix));
+
+  $f=FOpen($SourceFile, 'r');
+  If(!$f) { Print("Source File $SourceFile not found\n"); Return [$Ver, '']; }
+  
+  $FirstLine = FGetS($f);
+  If(Str_Starts_With($FirstLine, '#!'))
+  {
+    $Shebang=$FirstLine;
+    $FirstLine=FGetS($f);
+  }
+  FClose($f);
+  
+//$f=New SplFileObject($FlieName, 'r');
+//$FirstLine=$f->FGetS();
+//$f->Close();
+  Return [$Ver, $Shebang, $FirstLine];
 }

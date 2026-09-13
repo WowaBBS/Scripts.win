@@ -16,6 +16,7 @@
   
   [$Ver, $OptLine]=ParseFileInfo($CallFile);
   $Options=ParseOpts($OptLine);
+  $Options=DefaulOpts($Options);
   ProcessOpts($Options);
 
   Include 'PHP/Args.php';

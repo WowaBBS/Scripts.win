@@ -9,4 +9,6 @@ Return New Class('dl', 'dl[|-]', 'Enable/Disable dl') Extends TBase
     Global $PhpConfig;
     $PhpConfig['enable_dl']=($Value? 'On':'Off');
   }
+
+  Function GetDefault() { Return True; }
 };

@@ -40,7 +40,7 @@ Function ParseOpts($Line)
       $Op=':';
     ElseIf($Name!=='')
     {
-      Static $OpMap=['-'=>False, '+'=>True, '?'=>Null];
+      Static $OpMap=['-'=>False, '+'=>True];
       $Op=$Name[StrLen($Name)-1];
       If(Array_Key_Exists($Op, $OpMap))
       {
@@ -53,10 +53,19 @@ Function ParseOpts($Line)
     
     $OptInfo=$OptsInfo[$Name]?? Null;
     If($OptInfo===Null)
-      Echo 'Unknown option ', $Name, ':', $Value;
+      Echo 'Unknown option ', $Name, ':', $Value, "\n";
     Else
-      $Options[$Name]=$OptInfo->Parse($Value);
+      $Options[$Name]=$OptInfo->Parse($Value); //$Name, $Op
   }
+  Return $Options;
+}
+
+Function DefaulOpts($Options)
+{
+  Global $OptsInfo;
+  ForEach($OptsInfo As $OptInfo)
+    If(!Is_Null($Value=$OptInfo->GetDefault()))
+      $Options[$OptInfo->GetName()]??=$Value;
   Return $Options;
 }
 
@@ -64,7 +73,10 @@ Function ProcessOpts($Options)
 {
   Global $OptsInfo;
   ForEach($Options As $Name=>$Value)
-    $OptsInfo[$Name]->Process($Value);
+    If($OptInfo=$OptsInfo[$Name]?? Null)
+      $OptInfo->Process($Value);
+    Else
+      Echo 'Unknown option ', $Name, ':', $Value, "\n";
 }
 
 Function ShowOpts($Options)
@@ -72,10 +84,11 @@ Function ShowOpts($Options)
   Global $OptsInfo;
   $Res=[];
   ForEach($Options As $Name=>$Value)
-  {
-    $R=$OptsInfo[$Name]->Show($Value);
-    If($R!=='')
-      $Res[]=$R;
-  }
+    If($OptInfo=$OptsInfo[$Name]?? Null)
+    {
+      $R=$OptInfo->Show($Value);
+      If($R!=='')
+        $Res[]=$R;
+    }
   Return Implode(' ', $Res);
 }

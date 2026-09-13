@@ -5,8 +5,6 @@ $PhpConfig=[
   'extension_dir'=>$PHP_Path.'\ext',
 ];
 
-$Options['Mem']='1512M';
-$Options['Jit']=Null;
 $OptsInfo=[
   ...NormalizeOptsInfo(Include __DIR__.'/Opt/All.php'),
   ...$OptsInfo,

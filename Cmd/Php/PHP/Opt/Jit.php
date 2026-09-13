@@ -17,4 +17,7 @@ Return New Class('Jit', 'Jit[|-|:Str]', 'Enable/Disable: Jit, Jit-, Jit:1255') E
       $Cfg['jit'             ]  =$Value;
     }
   }
+
+//Function GetDefault() { Return False; }
+//Function GetDefault() { Return True; }
 };

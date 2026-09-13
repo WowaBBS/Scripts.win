@@ -32,4 +32,6 @@ Class TBase
        $Value=':'.$Value;
      Return $this->GetName().$Value;
   }
+  
+  Function GetDefault() { Return Null; }
 }
