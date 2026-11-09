@@ -27,4 +27,6 @@
     Echo "PHP$Ver ", ShowOpts($Options), "\n";
 
   CallExec([$PHP_Path.'\php.exe', '-q', ...$Args]);
+
+  $Loader?->Done();
   

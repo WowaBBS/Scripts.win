@@ -1,5 +1,10 @@
 <?
-$PHP_Path=GetEnv('PHP_Path')?: DirName(PHP_BINARY); //TODO: Detect
+If(!$Ver) $Ver='85';
+$PHP_Path=
+  GetEnv('PHP_Path'.$Ver)?: 
+  GetEnv('PHP_Path'.($Ver[0]?? ''))?: 
+  GetEnv('PHP_Path')?: 
+  DirName(PHP_BINARY); //TODO: Detect
 
 $PhpConfig=[
   'extension_dir'=>$PHP_Path.'\ext',
@@ -35,5 +40,5 @@ Function PHP_MakeArgs()
   Global $Ver;
 
   
-  If(!$Ver) $Ver='84';
+  If(!$Ver) $Ver='85';
 }
